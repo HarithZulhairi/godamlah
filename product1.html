@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-commerce Product Page</title>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/449b7d4b66.js" crossorigin="anonymous"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -25,10 +27,11 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex; align-items: center;
         }
 
         .product-image img {
-            width: 350px;
+            width: 500px;
             height: auto;
             border-radius: 8px;
         }
@@ -91,7 +94,7 @@
         }
 
         .actions button {
-            padding: 10px 20px;
+            padding: 12px 35px;
             margin: 10px 5px 0 0;
             border: none;
             border-radius: 5px;
@@ -106,8 +109,25 @@
         }
 
         .buy-now {
-            background-color: #e91e63;
+            background-color: #000000;
             color: white;
+        }
+
+        .conditions {
+            display: flex;
+            gap: 20px;
+            background: #ffffff;
+            padding: 2px 25px;     
+            opacity: 50%;
+            font-size: 14px;
+        }
+
+        .condition-box {
+            display: flex;
+            border-radius: 8px;
+            border: 0.8px solid #ccc;
+            flex-direction: column;
+            margin: 20px 0;
         }
 
         .info p {
@@ -186,6 +206,7 @@
                 <div class="rating">
                     <span>⭐⭐⭐⭐☆</span> <small>4.0 | SKU: E7F896GHO</small>
                 </div>
+                <hr style="margin: 15px 0;">
                 <div class="price">
                     <span class="current">RM49.99</span>
                     <span class="original">RM99.99</span>
@@ -198,9 +219,28 @@
                     <button>Grey</button>
                 </div>
                 <div class="actions">
-                    <button class="add-to-cart">Add to Cart</button>
-                    <button class="buy-now">Buy Now</button>
+                    <button class="add-to-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>   Add to Cart</button>
+                    <button class="buy-now"><i class="fa-solid fa-bag-shopping"></i>    Buy Now</button>
                 </div>
+                <div class="condition-box">
+                    <div class="conditions" style="border-bottom: 1px solid #ccc;">
+                        <div class="condition-icon" style="display: flex; align-items: center;">
+                            <i class="fa-regular fa-credit-card"></i>
+                        </div>
+                        <div class="condition-details">
+                            <p><b>Payment.</b> Payment upon receipt of goods, Payment by card in the department, Google Pay, Online card, -5% discount in case of payment</p>
+                        </div>
+                    </div>
+                    <div class="conditions">
+                        <div class="condition-icon" style="display: flex; align-items: center;">
+                            <i class="fa-regular fa-circle-check"></i>
+                        </div>
+                        <div class="condition-details">
+                            <p><b>Warranty.</b> The Consumer Protection Act does not provide for the return of this product of proper quality.</p>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="info">
                     <p>📦 Ready stock in Malaysia & ships within 48 hours</p>
                     <p>🚫 No warranty or refund policy available.</p>
