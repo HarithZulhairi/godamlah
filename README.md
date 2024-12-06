@@ -1,2 +1,0 @@
-# godamlah
-For hackathon
