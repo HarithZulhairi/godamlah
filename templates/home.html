@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<style type='text/css'>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f8f9fa;
+    }
+    
+    .container {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .left-panel {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    
+    .left-panel img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .right-panel img {
+        width: 65%;
+        height: 20%;
+    }
+    
+    .right-panel {
+        flex: 1;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        text-align: center;
+    }
+    
+    .right-panel h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        color: #333;
+    }
+    
+    .right-panel p {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    
+    .input-group {
+        position: relative;
+        width: 220%;
+        max-width: 400px;
+        margin-right: 180px;
+        margin-bottom: 20px;
+    }
+    
+    .input-group input {
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        outline: none;
+    }
+    
+    .input-group .icon {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        color: #888;
+        font-size: 1.2rem;
+    }
+    
+    .options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+    }
+    
+    .options a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    
+    button {
+        width: 100%;
+        max-width: 400px;
+        padding: 10px;
+        font-size: 1rem;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+    
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <img src="templates/loginImage.png" alt="Background">
+        </div>
+        <div class="right-panel">
+            <img src="templates/logoPrimevera.png">
+            <center><h1 style="margin: 10px 0px 5px 0px "><b>Hello Again</b></h1></center>
+            <center><p>Your go-to online shopping destination!🛒 <br>Discover a wide range of products, enjoy <br>exclusive deals, and shop effortlessly anytime, anywhere.</p></center>
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                    <span class="icon" style="color: blue;">@</span>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <span class="icon">🔒</span>
+                </div>
+                <div class="options">
+                    <label><input type="checkbox" id="rememberMe"> Remember Me</label>
+                    <a href="#">Recovery Password</a>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+document.getElementById('loginForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent form submission
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const rememberMe = document.getElementById('rememberMe').checked;
+
+    if (email && password) {
+        alert(`Welcome back! \nEmail: ${email}\nRemember Me: ${rememberMe}`);
+    } else {
+        alert('Please fill out all fields!');
+    }
+});
+</script>
