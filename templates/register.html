@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <style>
+        body {
+            font-family: Poppins, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('registerImage.png'); /* Add the background image */
+            background-size: cover; /* Make the image cover the entire background */
+            background-repeat: no-repeat; /* Avoid repeating the image */
+            background-position: center; /* Center the image */
+        }
+        h1 {
+            text-align: center;
+            font-weight:bold;
+        }
+        form {
+            max-width: 400px;
+            margin: 50px auto; /* Center the form vertically and horizontally */
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0); /* Slightly transparent white background */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            height: 50px;
+            padding: 8px;
+            margin: 5px 0 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .camera-button {
+            background-color: black;
+            border: 2px solid #000000;
+            border-radius: 50%;
+            color: #007BFF;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .camera-button:hover {
+            background-color: #a1a1a1;
+            color: #8e8e8e;
+        }
+        .recaptcha {
+            display: flex;
+            margin: 10px 0;
+        }
+        .recaptcha input {
+            margin-right: 10px;
+        }
+        .register-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 10px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        .register-button:hover {
+            background-color: #0056b3;
+        }
+        form img {
+            margin: 0 auto -10px; /* Center the logo and add some space below it */
+            margin-left: -30px;
+            width: 450px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <form action="submit_form.php" method="POST">
+        <img src="logoPrimevera.png">
+        <h1><b>SIGN UP</b></h1>
+        <label for="name">Full Name</label>
+        <input type="text" name="name" id="name" placeholder="Enter your full name" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Enter your email" required>
+
+        <label for="contract">Contract</label>
+        <input type="text" name="contract" id="contract" placeholder="Enter contract details" required>
+
+        <label for="address">Address</label>
+        <input type="text" name="address" id="address" placeholder="Enter your address" required>
+
+        <label for="pass">New Password</label>
+        <input type="password" name="pass" id="pass" placeholder="Enter your password" required>
+
+        <!-- Camera Button -->
+        <button type="button" class="camera-button" style="margin-top: 10px;">
+            📷
+        </button>
+
+        <!-- Recaptcha Checkbox -->
+        <div class="recaptcha">
+            <input type="checkbox" id="recaptcha" required>
+            <span for="recaptcha">I am not a robot</span>
+        </div>
+
+        <!-- Register Button -->
+        <button type="submit" class="register-button">Register</button>
+    </form>
+</body>
+</html>
