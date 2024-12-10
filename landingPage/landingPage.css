@@ -1,10 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins'); 
 
-body {
+* {
+  box-sizing: border-box;
+}
+
+html, body {
   font-family: Poppins, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar(both) */
 }
 
 /* Navbar */
@@ -28,15 +38,44 @@ body {
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  padding: 10px 150px;
+  padding: 10px 0px 10px 80px;
   background-color: #f9f9f9;
 }
 
 .navbar a {
   text-decoration: none;
   color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
 }
 
+.navbar a:hover {
+  text-decoration: none;
+  color: #3764b6;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 5px 15px;
+  background-color: #eaeaea;
+  width: 500px;
+  height: 30px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  flex: 1;
+  padding: 5px;
+  background-color: #eaeaea;
+}
+
+.search-bar i{
+  cursor: pointer;
+}
 
 
 .navbar-icons {
@@ -44,21 +83,44 @@ body {
   align-items: center;
   margin-right: 100px;
   gap: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
+}
+
+.navbar-icons i:hover{
+  color: #3764b6;
 }
 
 .accountCont {
     display: flex;
-    padding: 10px 20px;
     align-items: center;
     background-color: #f9f9f9; 
     gap: 15px;
-    padding: 10px 50px 10px 0px;
+    padding: 20px 100px 20px 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 280px;
+}
+
+.accountCont i{
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
+}
+
+.accountCont i:hover{
+  color: #3764b6;
 }
 
 .accountCont a{
     margin-top: 6px;
     text-decoration: none;
     color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
+}
+
+.accountCont a:hover{
+  color: #3764b6;
 }
 
 /* Hero Section */
@@ -69,111 +131,196 @@ body {
 
 .hero img {
   width: 100%;
-  height: auto;
+  height: 600px; 
+  object-fit: cover; 
 }
 
 .hero-text {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 30%;
+  left: 69%;
+  transform: translateY(-50%);
+  text-align: right;
+  font-size: 24px;
   color: white;
-  background-color: rgba(0, 0, 0, 0.6);
   padding: 20px;
   border-radius: 5px;
+  max-width: 420px;
+  line-height: 1.5;
+}
+
+.hero-text button {
+  width: 200px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-family: Poppins, sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
+}
+
+.hero-text button:hover {
+  background-color: rgba(255, 255, 255, 0.8); /* New background color on hover */
+  color: black; /* Change text color */
 }
 
 /* Categories Section */
 .categories {
-  padding: 20px;
+  padding: 5px;
   text-align: center;
 }
 
 .categories h2 {
+  text-align: left;
   margin-bottom: 20px;
+  margin-left: 20px; 
+
+}
+
+.scroll-container {
+
+  display: flex;
+  align-items: center;
+  overflow-x: visible;
+  position: relative;
+}
+
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+  border-radius: 3px;
+}
+
+#scroll-left-cat {
+  left: 0;
+}
+
+#scroll-right-cat {
+  right: 0;
+}
+
+#scroll-left-deals {
+  left: 0;
+}
+
+#scroll-right-deals {
+  right: 0;
+}
+
+.scroll-button:disabled {
+  display: none;
 }
 
 .category-list {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 10px;
+  gap: 18px;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  white-space: nowrap; /* Prevents wrapping */
+  margin-left: 20px;
+  max-width: 100vw; /*This is the maximum width of device view -- Note to self, use this to fit screen after this, not 100% */
 }
+
 
 .category-item {
-  width: 150px;
+  flex: 0 0 auto;
+  width: 280px;
+  height: 350px;
+  border-radius: 20px;
   text-align: center;
   cursor: pointer;
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat;
 }
 
-.category-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
+#Handbag {
+  background-image: url('../asset/leather hb_ontable.jpg');
+  color: white;
+}
+
+#Book{
+  background-image: url('../asset/white_book.jpg');
+}
+
+#Tech{
+  background-image: url('../asset/laptop_halfopen_darkroom.jpg');
+  color: white;
+}
+
+#Shoes{
+  background-image: url('../asset/shoes_pinkbg.jpg');
+}
+
+#Furniture{
+  background-image: url('../asset/wooden_table_chair.jpg');
+  color: white;
+}
+
+#Stripper{
+  background-image: url('../asset/cipudselfie.jpg');
+  color: white;
 }
 
 /* Deals Section */
 .deals {
-  padding: 20px;
-  background-color: #f9f9f9;
+  margin-top: 0px;
+  padding: 5px;
+  margin-bottom: 20px;
 }
 
 .deals h2 {
-  text-align: center;
+  text-align: left;
+  margin-left: 20px;
   margin-bottom: 20px;
 }
 
 .deal-list {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 10px;
+  gap: 18px;
+  overflow-x: auto;
+  white-space:nowrap;
+  margin-left: 20px;
+  border-radius: 10px;
+  max-width: 100vw;
 }
 
 .deal-item {
-  width: 180px;
-  background-color: white;
+  flex: 0 0 auto;
+  width: 280px;
+  background-color: rgb(212, 212, 212);
   padding: 10px;
-  border-radius: 5px;
-  text-align: center;
+  border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .deal-item img {
   width: 100%;
-  height: auto;
+  height: 300px;
+  object-fit: cover;
   border-radius: 5px;
 }
 
-.search-bar {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    padding: 5px 15px;
-    background-color: #fff;
-    width: 300px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+.deal-item p{
+  margin-bottom: 5px;
+  margin-top: 5px;
+  text-align: left;
+  margin-left: 5px;
+}
 
-  .search-bar input {
-    border: none;
-    outline: none;
-    font-size: 16px;
-    flex: 1;
-    padding: 5px;
-  }
+.copyright{
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 12px;
+}
 
-  .search-bar button {
-    background-color: #007bff;
-    border: none;
-    color: white;
-    padding: 8px 15px;
-    font-size: 16px;
-    border-radius: 20px;
-    cursor: pointer;
-  }
 
-  .search-bar button:hover {
-    background-color: #0056b3;
-  }

@@ -6,14 +6,14 @@
   <title>Perimevera Store Landing Page</title>
   <link rel="stylesheet" href="landingPage.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="landingPage.js"></script>
-</head>
-<body>
 
+</head>
+
+<body>
 <!-- Navbar -->
 <div class="BigMama">
   <div class="Logocontainer">
-    <img src="asset/logoPrimevera.png" alt="Perimevera Logo">
+    <img src="../asset/logoPrimevera.png" alt="Perimevera Logo">
   </div>
 
   <div class="navbar">
@@ -21,16 +21,16 @@
     <a href="#">Shop All</a>
     <div class="search-bar">
         <input type="text" placeholder="Search...">
-        <button>Search</button>
+        <i class="fa-solid fa-magnifying-glass"></i>
     </div>
     <div class="navbar-icons">
-      <i class="fa-solid fa-cart-shopping"></i>
-      <i class="fa-solid fa-clipboard-list"></i>
+      <i class="fa-solid fa-cart-shopping fa-lg"></i>
+      <i class="fa-solid fa-clipboard-list fa-lg" style="margin-top: -3px;"></i>
     </div>
   </div>
 
   <div class="accountCont">
-    <i class="fa-solid fa-user"></i>
+    <i class="fa-solid fa-user fa-lg"></i>
     <a href="#">Account</a>
   </div>
   
@@ -38,70 +38,87 @@
 
   <!-- Hero Section -->
   <div class="hero">
-    <img src="https://via.placeholder.com/1200x400" alt="Hero Image">
+    <img src="../asset/new balance_brickwall_bg.jpg" alt="Banner">
     <div class="hero-text">
       <h1>Shop Smarter, Live Better with Perimevera!</h1>
       <button>Shop Now</button>
     </div>
-
+  </div>
+  
   <!-- Categories Section -->
-  <div class="categories">
-    <h2>Shop Our Top Categories</h2>
-    <div class="category-list">
-      <div class="category-item">
-        <img src="https://via.placeholder.com/150" alt="Hand Bag">
-        <p>Hand Bag</p>
+  <div class="scroll-container">
+    <button id="scroll-left-cat" class="scroll-button" style="display: none;">&#9664;</button>
+      <div class="categories">
+        <h2>Shop Our Top Categories</h2>
+        <div class="category-list">
+          <div id="Handbag" class="category-item">
+            <h3>Hand Bag</h3>
+          </div>
+          <div id="Book" class="category-item">
+            <h3>Books</h3>
+          </div>
+          <div id="Tech" class="category-item">
+            <h3>Tech</h3>
+          </div>
+          <div id="Shoes" class="category-item">
+            <h3>Shoes</h3>
+          </div>
+          <div id="Furniture" class="category-item">
+            <h3>Furniture</h3>
+          </div>
+          <div id="Stripper" class="category-item">
+            <h3>Stripper</h3>
+          </div>
+        </div>
       </div>
-      <div class="category-item">
-        <img src="https://via.placeholder.com/150" alt="Books">
-        <p>Books</p>
-      </div>
-      <div class="category-item">
-        <img src="https://via.placeholder.com/150" alt="Tech">
-        <p>Tech</p>
-      </div>
-      <div class="category-item">
-        <img src="https://via.placeholder.com/150" alt="Shoes">
-        <p>Shoes</p>
-      </div>
-      <div class="category-item">
-        <img src="https://via.placeholder.com/150" alt="Furniture">
-        <p>Furniture</p>
-      </div>
-    </div>
+    <button id="scroll-right-cat" class="scroll-button">&#9654;</button>
   </div>
 
   <!-- Deals Section -->
-  <div class="deals">
-    <h2>Today's Best Deals For You!</h2>
-    <div class="deal-list">
-      <div class="deal-item">
-        <img src="https://via.placeholder.com/150" alt="Modern Chair">
-        <p>Modern Chair</p>
-        <p>RM 800.00</p>
+  <div class="scroll-container">
+    <button id="scroll-left-deals" class="scroll-button" style="display: none;">&#9664;</button>
+      <div class="deals">
+        <h2>Today's Best Deals For You!</h2>
+        <div class="deal-list">
+          <div class="deal-item">
+            <img src="../asset/chair.jpg" alt="Modern Chair">
+            <p>Modern Chair</p>
+            <p><b>RM 800.00</b></p>
+          </div>
+          <div class="deal-item">
+            <img src="../asset/blackHB.jpg" alt="Handbag">
+            <p>HB5260 Handbag</p>
+            <p><b>RM 28.80</b></p>
+          </div>
+          <div class="deal-item">
+            <img src="../asset/monitor.jpg" alt="Monitor">
+            <p>Office Monitor 24"</p>
+            <p><b>RM 349.00</b></p>
+          </div>
+          <div class="deal-item">
+            <img src="../asset/menJacket.webp" alt="Lightweight Hood">
+            <p>Lightweight Hood Jacket</p>
+            <p><b>RM 220.00</b></p>
+          </div>
+          <div class="deal-item">
+            <img src="../asset/airpod.jpg" alt="AirPods Pro 2">
+            <p>AirPods Pro 2</p>
+            <p><b>RM 1099.00</b></p>
+          </div>
+          <div class="deal-item">
+            <img src="../asset/airpod.jpg" alt="AirPods Pro 2">
+            <p>AirPods Pro 2</p>
+            <p><b>RM 1099.00</b></p>
+          </div>
+        </div>
       </div>
-      <div class="deal-item">
-        <img src="https://via.placeholder.com/150" alt="Handbag">
-        <p>HB5260 Handbag</p>
-        <p>RM 28.80</p>
-      </div>
-      <div class="deal-item">
-        <img src="https://via.placeholder.com/150" alt="Monitor">
-        <p>Office Monitor 24"</p>
-        <p>RM 349.00</p>
-      </div>
-      <div class="deal-item">
-        <img src="https://via.placeholder.com/150" alt="Jacket">
-        <p>Lightweight Hood Jacket</p>
-        <p>RM 220.00</p>
-      </div>
-      <div class="deal-item">
-        <img src="https://via.placeholder.com/150" alt="AirPods">
-        <p>AirPods Pro 2</p>
-        <p>RM 1099.00</p>
-      </div>
-    </div>
+    <button id="scroll-right-deals" class="scroll-button">&#9654;</button>
   </div>
 
+  <div class="copyright">
+    <p>&copy; 2024 Perimevera. All rights reserved.</p>
+  </div>
+  
+<script src="landingPage.js"></script>
 </body>
 </html>
