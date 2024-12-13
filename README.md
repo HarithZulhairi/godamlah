@@ -1,5 +1,5 @@
-# face-recognition-based-attendance-system  
+# Perimevera Ecommerce site with Machine Learning Face and Hand Gesture Recognition
 
-Do visit my blog for better explanations: https://machinelearningprojects.net/face-recognition-based-attendance-system/
 
-![Face Recognition Based Attendance System](ss.png)
+
+![Perimevera Ecommerce System](ss.png)
