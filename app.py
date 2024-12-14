@@ -31,7 +31,7 @@ if not os.path.isdir('static/faces'):
     os.makedirs('static/faces')
 if f'Attendance-{datetoday}.csv' not in os.listdir('Attendance'):
     with open(f'Attendance/Attendance-{datetoday}.csv', 'w') as f:
-        f.write('Name,Roll,Time')
+        f.write('email,Roll,Time')
 
 
 # get a number of total registered users
@@ -75,11 +75,11 @@ def train_model():
 # Extract info from today's attendance file in attendance folder
 def extract_attendance():
     df = pd.read_csv(f'Attendance/Attendance-{datetoday}.csv')
-    names = df['Name']
+    emails = df['email']
     rolls = df['Roll']
     times = df['Time']
     l = len(df)
-    return names, rolls, times, l
+    return emails, rolls, times, l
 
 
 # Add Attendance of a specific user
@@ -123,10 +123,34 @@ def deletefolder(duser):
 
 # Our main page
 @app.route('/')
-def home():
+def register():
     names, rolls, times, l = extract_attendance()
-    return render_template('home.html', names=names, rolls=rolls, times=times, l=l, totalreg=totalreg(), datetoday2=datetoday2)
+    return render_template('register.html', names=names, rolls=rolls, times=times, l=l, totalreg=totalreg(), datetoday2=datetoday2)
 
+# Login page
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
+# Landing page
+@app.route('/landing')
+def landingpage():
+    return render_template('landingPage.html')
+
+# Shop page
+@app.route('/shop')
+def shoppage():
+    return render_template('shopPage.html')
+
+# Product1 page
+@app.route('/product_1')
+def product1():
+    return render_template('product1.html')
+
+# Product2 page
+@app.route('/product_2')
+def product2():
+    return render_template('product2.html')
 
 ## List users page
 @app.route('/listusers')
@@ -184,14 +208,63 @@ def start():
     names, rolls, times, l = extract_attendance()
     return render_template('home.html', names=names, rolls=rolls, times=times, l=l, totalreg=totalreg(), datetoday2=datetoday2)
 
+@app.route('/welcome', methods=['POST'])
+def welcome():
+    # Extract user credentials from the login form
+    email = request.form['email']
+    password = request.form['pass']
+
+    # Check if the face recognition model exists
+    if 'face_recognition_model.pkl' not in os.listdir('static'):
+        return render_template(
+            'home.html', 
+            mess='No trained model found. Please register a new user.'
+        )
+
+    # Initialize webcam and begin face recognition
+    cap = cv2.VideoCapture(0)
+    recognized_user = None
+    ret = True
+    while ret:
+        ret, frame = cap.read()
+        if len(extract_faces(frame)) > 0:
+            (x, y, w, h) = extract_faces(frame)[0]
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (86, 32, 251), 1)
+            face = cv2.resize(frame[y:y+h, x:x+w], (50, 50))
+            identified_person = identify_face(face.reshape(1, -1))[0]
+
+            # Check if the recognized person matches the login credentials
+            if identified_person == f"{email}_{password}":
+                recognized_user = identified_person
+                add_attendance(identified_person)
+                break
+
+            cv2.putText(frame, 'Face not recognized!', (x+5, y-5),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        cv2.imshow('Facial Recognition Login', frame)
+        if cv2.waitKey(1) == 27:  # Escape key to exit
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
+
+    # If face recognition is successful, direct to shop.html
+    if recognized_user:
+        return render_template('landingPage.html')
+    else:
+        # If face recognition fails, redirect back to login page
+        return render_template(
+            'home.html',
+            mess='Face not recognized. Please try again.'
+        )
 
 # A function to add a new user.
 # This function will run when we add a new user.
 @app.route('/add', methods=['GET', 'POST'])
 def add():
-    newusername = request.form['newusername']
-    newuserid = request.form['newuserid']
-    userimagefolder = 'static/faces/'+newusername+'_'+str(newuserid)
+    email = request.form['email']
+    password = request.form['pass']
+    userimagefolder = 'static/faces/'+email+'_'+str(password)
     if not os.path.isdir(userimagefolder):
         os.makedirs(userimagefolder)
     i, j = 0, 0
@@ -204,7 +277,7 @@ def add():
             cv2.putText(frame, f'Images Captured: {i}/{nimgs}', (30, 30),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 20), 2, cv2.LINE_AA)
             if j % 5 == 0:
-                name = newusername+'_'+str(i)+'.jpg'
+                name = email+'_'+str(i)+'.jpg'
                 cv2.imwrite(userimagefolder+'/'+name, frame[y:y+h, x:x+w])
                 i += 1
             j += 1

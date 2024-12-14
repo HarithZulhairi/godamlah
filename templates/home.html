@@ -140,13 +140,13 @@
             <img src="../static/logoPrimevera.png">
             <center><h1 style="margin: 10px 0px 5px 0px "><b>Hello Again</b></h1></center>
             <center><p>Your go-to online shopping destination!🛒 <br>Discover a wide range of products, enjoy <br>exclusive deals, and shop effortlessly anytime, anywhere.</p></center>
-            <form id="loginForm">
+            <form id="loginForm" action='/welcome' method="POST" enctype="multipart/form-data">
                 <div class="input-group">
-                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="email" id="email" placeholder="Email" name='email' required>
                     <span class="icon" style="color: blue;">@</span>
                 </div>
                 <div class="input-group">
-                    <input type="password" id="password" placeholder="Password" required>
+                    <input type="password" id="password" placeholder="Password" name='pass' required>
                     <span class="icon">🔒</span>
                 </div>
                 <div class="options">
@@ -159,7 +159,7 @@
     </div>
 </body>
 </html>
-<script>
+<!-- <script>
 document.getElementById('loginForm').addEventListener('submit', function (e) {
     e.preventDefault(); // Prevent form submission
 
@@ -173,4 +173,4 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
         alert('Please fill out all fields!');
     }
 });
-</script>
+</script> -->

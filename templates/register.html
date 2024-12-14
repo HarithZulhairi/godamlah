@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
     <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins');
         body {
             font-family: Poppins, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('registerImage.png'); /* Add the background image */
+            background-image: url('../static/registerImage.png'); /* Add the background image */
             background-size: cover; /* Make the image cover the entire background */
             background-repeat: no-repeat; /* Avoid repeating the image */
             background-position: center; /* Center the image */
@@ -32,6 +33,7 @@
             text-align: left;
         }
         input[type="text"], input[type="email"], input[type="password"] {
+            font-family: Poppins, sans-serif;
             width: 100%;
             height: 50px;
             padding: 8px;
@@ -85,34 +87,34 @@
     </style>
 </head>
 <body>
-    <form action="submit_form.php" method="POST">
-        <img src="logoPrimevera.png">
+    <form action="/add" method="POST" enctype="multipart/form-data">
+        <img src="../static/logoPrimevera.png">
         <h1><b>SIGN UP</b></h1>
         <label for="name">Full Name</label>
-        <input type="text" name="name" id="name" placeholder="Enter your full name" required>
+        <input type="text" name='name' id="name" placeholder="Enter your full name" required>
 
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="Enter your email" required>
+        <input type="email" name='email' id="email" placeholder="Enter your email" required>
 
-        <label for="contract">Contract</label>
-        <input type="text" name="contract" id="contract" placeholder="Enter contract details" required>
+        <label for="contact">Contact</label>
+        <input type="text" name='contact' id="contact" placeholder="Enter contact details" required>
 
         <label for="address">Address</label>
-        <input type="text" name="address" id="address" placeholder="Enter your address" required>
+        <input type="text" name='address' id="address" placeholder="Enter your address" required>
 
         <label for="pass">New Password</label>
-        <input type="password" name="pass" id="pass" placeholder="Enter your password" required>
+        <input type="password" name='pass' id="pass" placeholder="Enter your password" required>
 
         <!-- Camera Button -->
-        <button type="button" class="camera-button" style="margin-top: 10px;">
+        <!-- <button type="button" class="camera-button" style="margin-top: 10px;">
             📷
-        </button>
+        </button> -->
 
         <!-- Recaptcha Checkbox -->
-        <div class="recaptcha">
+        <!-- <div class="recaptcha">
             <input type="checkbox" id="recaptcha" required>
             <span for="recaptcha">I am not a robot</span>
-        </div>
+        </div> -->
 
         <!-- Register Button -->
         <button type="submit" class="register-button">Register</button>
