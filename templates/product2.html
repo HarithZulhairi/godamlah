@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Product Page</title>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/449b7d4b66.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .product-page {
+            display: flex;
+            gap: 20px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex; align-items: center;
+        }
+
+        .product-image img {
+            width: 500px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-details {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 22px;
+            color: #333;
+            margin: 0;
+        }
+
+        .rating {
+            margin: 10px 0;
+        }
+
+        .rating span {
+            font-size: 18px;
+            color: #f4b400;
+            margin-right: 5px;
+        }
+
+        .price {
+            margin: 10px 0;
+            font-size: 28px;
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        .price .original {
+            text-decoration: line-through;
+            font-size: 18px;
+            color: #aaa;
+            margin-left: 10px;
+        }
+
+        .variations label {
+            margin-top: 30px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .variations button {
+            margin: 0 5px 10px 0;
+            padding: 10px 15px;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .variations button:hover {
+            border-color: #007bff;
+            background-color: #f0f8ff;
+        }
+
+        .actions button {
+            padding: 12px 35px;
+            margin: 35px 5px 15px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .add-to-cart {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .buy-now {
+            background-color: #000000;
+            color: white;
+        }
+
+        .conditions {
+            display: flex;
+            gap: 20px;
+            background: #ffffff;
+            padding: 2px 25px;     
+            opacity: 50%;
+            font-size: 14px;
+        }
+
+        .condition-box {
+            display: flex;
+            border-radius: 8px;
+            border: 0.8px solid #ccc;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+
+        .info p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .info {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .seller-info {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .seller-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .seller-header h4 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .seller-header button {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .stats {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .stats p {
+            margin: 5px 0;
+        }
+
+        .preferred {
+            display: inline-block;
+            padding: 5px 10px;
+            color: #fff;
+            background-color: #ff6f61;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-page">
+            <!-- Product Image Section -->
+            <div class="product-image">
+                <img src="../static/infront.webp" alt="Product Image">
+            </div>
+
+            <!-- Product Details Section -->
+            <div class="product-details">
+                <h1>Acer Nitro XV240YM3 23.8" Gaming Monitor</h1>
+                <div class="rating">
+                    <span>⭐⭐⭐⭐☆</span> <small>4.0 | SKU: E7F896GHO</small>
+                </div>
+                <hr style="margin: 15px 0;">
+                <div class="price">
+                    <span class="current">RM349.99</span>
+                    <span class="original">RM499.99</span>
+                </div>
+                <div class="variations">
+                    <label>Variation:</label>
+                    <button>Black</button>
+                    <button>Navy</button>
+                </div>
+                <div class="actions">
+                    <button class="add-to-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>   Add to Cart</button>
+                    <button class="buy-now"><i class="fa-solid fa-bag-shopping"></i>    Buy Now</button>
+                </div>
+                <div class="condition-box">
+                    <div class="conditions" style="border-bottom: 1px solid #ccc;">
+                        <div class="condition-icon" style="display: flex; align-items: center;">
+                            <i class="fa-regular fa-credit-card"></i>
+                        </div>
+                        <div class="condition-details">
+                            <p><b>Payment.</b> Payment upon receipt of goods, Payment by card in the department, Google Pay, Online card, -5% discount in case of payment</p>
+                        </div>
+                    </div>
+                    <div class="conditions">
+                        <div class="condition-icon" style="display: flex; align-items: center;">
+                            <i class="fa-regular fa-circle-check"></i>
+                        </div>
+                        <div class="condition-details">
+                            <p><b>Warranty.</b> The Consumer Protection Act does not provide for the return of this product of proper quality.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seller Info Section -->
+        <div class="seller-info">
+            <span class="preferred">Preferred</span>
+            <div class="seller-header">
+                <h4>Acer Official Store</h4>
+                <div>
+                    <button>View Shop</button>
+                    <button>Chat</button>
+                </div>
+            </div>
+            <div class="stats">
+                <p>Products: 800</p>
+                <p>Followers: 801.3k</p>
+                <p>Response Rate: 99%</p>
+                <p>Joined: 14 years ago</p>
+            </div>
+        </div>
+        <div class="info">
+            <p>📦 Ready stock in Malaysia & ships within 48 hours</p>
+            <p>🚫 No warranty or refund policy available.</p>
+            <p>💬 Contact us for any issues or inquiries.</p>
+        </div>
+    </div>
+</body>
+</html>
