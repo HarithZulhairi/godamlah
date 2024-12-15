@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-commerce Product Page</title>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <script src="https://kit.fontawesome.com/449b7d4b66.js" crossorigin="anonymous"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        @import url('https://fonts.googleapis.com/css?family=Poppins'); 
+
+        html, body {
+            font-family: Poppins, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f9f9f9;
         }
+
+        /* Navbar */
+        .BigMama{
+            display: flex;
+        }
+
+        .Logocontainer {
+            padding: 10px 0px 10px 30px;
+            align-items: center;
+            background-color: #f9f9f9; 
+        }
+
+        .Logocontainer img {
+            height: 50px;
+            width: auto;
+            
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+            padding: 10px 0px 10px 80px;
+            background-color: #f9f9f9;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
+        }
+
+        .navbar a:hover {
+            text-decoration: none;
+            color: #3764b6;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 5px 15px;
+            background-color: #eaeaea;
+            width: 500px;
+            height: 30px;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            font-size: 16px;
+            flex: 1;
+            padding: 5px;
+            background-color: #eaeaea;
+        }
+
+        .search-bar i{
+            cursor: pointer;
+        }
+
+
+        .navbar-icons {
+            display: flex;
+            align-items: center;
+            margin-right: 100px;
+            gap: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
+        }
+
+        .navbar-icons i:hover{
+            color: #3764b6;
+        }
+
+        .accountCont {
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9; 
+            gap: 15px;
+            padding: 20px 100px 20px 0px;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 280px;
+        }
+
+        .accountCont i{
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
+        }
+
+        .accountCont i:hover{
+        color: #3764b6;
+        }
+
+        .accountCont a{
+            margin-top: 6px;
+            text-decoration: none;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
+        }
+
+        .accountCont a:hover{
+            color: #3764b6;
+        }
+
 
         .container {
             max-width: 1200px;
@@ -31,7 +141,19 @@
             display: flex; align-items: center;
         }
 
-        .product-image img {
+        .product-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bottom-image img {
+            width: 60px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .main-image img {
             width: 500px;
             height: auto;
             border-radius: 8px;
@@ -105,6 +227,31 @@
             font-weight: bold;
         }
 
+        /* Hover effect for Add to Cart and Buy Now buttons */
+        .actions button:hover {
+            opacity: 0.9; /* Slightly dim the button for feedback */
+            transform: scale(1.02); /* Slight scaling for effect */
+        }
+
+        /* Hover effect for Variation buttons */
+        .variations button:hover {
+            border-color: #007bff; /* Change border color */
+            background-color: #f0f8ff; /* Add a light blue background */
+            color: #007bff; /* Text color to match */
+        }
+
+        /* Hover effect for "View Shop" and "Chat" buttons */
+        .seller-header button:hover {
+            background-color: #0056b3; /* Darker blue for feedback */
+            color: white; /* Ensure text stays visible */
+        }
+
+        /* Add some transition to make the hover smoother */
+        button {
+            transition: all 0.3s ease; /* Smooth transition for all button properties */
+        }
+
+
         .add-to-cart {
             background-color: #28a745;
             color: white;
@@ -141,6 +288,31 @@
             margin-top: 20px;
             font-size: 14px;
         }
+        
+        .circle-frame {
+            width: 150px; /* Adjust the width/height as needed */
+            height: 150px;
+            border-radius: 50%; /* Makes it a circle */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+
+        }
+
+        .circle-frame img {
+            max-width: 90%; /* Ensures the image stays inside the circle */
+            border-radius: 30%; /* Ensures the image is also circular */
+        }
+
+        .shop-name {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333;
+        }
+
 
         .seller-info {
             margin-top: 20px;
@@ -152,8 +324,8 @@
 
         .seller-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-around;
             margin-bottom: 15px;
         }
 
@@ -170,6 +342,7 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            font-weight: bold;
         }
 
         .stats {
@@ -192,14 +365,75 @@
             margin-bottom: 10px;
         }
 
+        .info {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff; /* White background */
+            border-radius: 8px; /* Smooth rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            font-size: 14px; /* Font size for better readability */
+            line-height: 1.8; /* Improves text spacing */
+            color: #555; /* Text color for easy reading */
+        }
+
+        .info p {
+            margin: 10px 0; /* Spacing between lines */
+            display: flex; /* Allows emoji alignment */
+            align-items: center; /* Vertically center text and emoji */
+            gap: 10px; /* Space between emoji and text */
+        }
+
+        .info p span {
+            font-size: 16px; /* Slightly larger emoji size */
+        }
+
+        .info-tabs {
+            font-size: large;
+        }
+
+
     </style>
 </head>
 <body>
+
+    <!-- Navbar -->
+    <div class="BigMama">
+        <div class="Logocontainer">
+        <img src="asset/logoPrimevera.png" alt="Perimevera Logo">
+        </div>
+    
+        <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Shop All</a>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="navbar-icons">
+            <i class="fa-solid fa-cart-shopping fa-lg"></i>
+            <i class="fa-solid fa-clipboard-list fa-lg" style="margin-top: -3px;"></i>
+        </div>
+        </div>
+    
+        <div class="accountCont">
+        <i class="fa-solid fa-user fa-lg"></i>
+        <a href="#">Account</a>
+        </div>
+        
+    </div>
+
     <div class="container">
         <div class="product-page">
             <!-- Product Image Section -->
             <div class="product-image">
-                <img src="../static/blackHB.jpg" alt="Product Image">
+                <div class="main-image">
+                    <img src="asset/bag.jpg" alt="Product Image">
+                </div>
+                <div class="bottom-image">
+                    <img src="asset/bag.jpg" alt="Product Image">
+                    <img src="asset/greybag.jpg" alt="Product Image">
+                    <img src="asset/purplebag.jpg" alt="Product Image">
+                </div>
             </div>
 
             <!-- Product Details Section -->
@@ -249,24 +483,50 @@
         <div class="seller-info">
             <span class="preferred">Preferred</span>
             <div class="seller-header">
-                <h4>Woman Shop</h4>
-                <div>
-                    <button>View Shop</button>
-                    <button>Chat</button>
+                <div class="logo-label">
+                    <div class="circle-frame">
+                        <img src="asset/shoplogo.png" alt="Woman Shop Logo">
+                    </div>
+                    <p class="shop-name">Woman Shop</p>
+                </div>
+                <div class="desc-button">
+                    <div class="stats">
+                        <p>Products: 500</p>
+                        <p>Followers: 455.8k</p>
+                        <p>Response Rate: 99%</p>
+                        <p>Joined: 14 years ago</p>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <button>View Shop</button>
+                        <button>Chat</button>
+                    </div>
                 </div>
             </div>
-            <div class="stats">
-                <p>Products: 500</p>
-                <p>Followers: 455.8k</p>
-                <p>Response Rate: 99%</p>
-                <p>Joined: 14 years ago</p>
-            </div>
+
         </div>
         <div class="info">
-            <p>📦 Ready stock in Malaysia & ships within 48 hours</p>
-            <p>🚫 No warranty or refund policy available.</p>
-            <p>💬 Contact us for any issues or inquiries.</p>
-        </div>
+            <div class="info-tabs">
+                <b>Description</b> 
+                <span style="margin-left: 20px;">Reviews(1.1k)</span>
+            </div>
+            <hr>
+            <p><span>📦</span>All Ready Stock in Malaysia & Ship within 48 Hours (T&C)</p>
+            <p><span>🚫</span>Not shipping on Sat & Sun</p>
+            <p><span>👑</span>Dropship/Reseller/Wholesale/Agent are welcome!</p>
+            <p><span>🚫</span>NO Requirements, NO Receipt, NO Storage</p>
+            <p><span>👑</span>FOLLOW US NOW FOR SPECIAL DEAL</p>
+            <p><span>👑</span>WHOLESALES PRICE AVAILABLE</p>
+            <p><span>👑</span>Worryfree shopping</p>
+            <p><span>🔧</span>Please contact us if you have any problem. We will try our best to solve your problem.</p>
+            <p>- Handbag Size: 31cm x 23cm x 14cm, Handle 15cm</p>
+            <p>- Premium Design PU Leather</p>
+            <p>- Multi Compartment inside</p>
+            <p>- Handbags Type: Cross Body Bags</p>
+            <p>- Material: Polyurethane Leather</p>
+            <p>- European Latest Elegant Design and Easy mix and match</p>
+            <p>- Premium quality with Ultralight, durable</p>
+            <p>- Suitable for most kind of event</p>
+        </div>        
     </div>
 </body>
 </html>
