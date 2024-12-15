@@ -2,4 +2,4 @@
 
 
 
-![Perimevera Ecommerce System](ss.png)
+![Perimevera Ecommerce System](static/ss.png)
